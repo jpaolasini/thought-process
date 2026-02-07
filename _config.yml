@@ -1,0 +1,10 @@
+title: Thought Process
+description: Minimalist software engineering essays — systems, craft, and clarity.
+
+url: "https://jpaolasini.github.io"
+baseurl: "/thought-process"
+
+timezone: America/Toronto
+
+markdown: kramdown
+permalink: /posts/:year/:month/:day/:title/
