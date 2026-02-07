@@ -1,1 +1,163 @@
-body{font-family:system-ui;}
+:root{
+  --bg:#f8fcfa;
+  --surface:#ffffff;
+  --text:#0b1410;
+  --muted:#5f7266;
+
+  --mint:#79c29a;
+  --mint-soft:#e6f5ed;
+
+  --border:rgba(11,20,16,.08);
+  --shadow:0 12px 40px rgba(11,20,16,.06);
+
+  --radius:22px;
+  --max:880px;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font:17px/1.75 "Inter",system-ui,-apple-system,BlinkMacSystemFont;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #eaf7f0, transparent 60%),
+    radial-gradient(900px 600px at 90% 0%, #dff3ea, transparent 55%),
+    var(--bg);
+}
+
+.wrap{
+  max-width:var(--max);
+  margin:auto;
+  padding:40px 20px;
+}
+
+.topbar{
+  position:sticky;
+  top:0;
+  background:rgba(248,252,250,.75);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+
+.topbar-inner{
+  max-width:var(--max);
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-weight:700;
+  font-size:18px;
+  color:var(--text);
+  text-decoration:none;
+}
+
+.nav a,.theme-toggle{
+  font-size:14px;
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:12px;
+  background:transparent;
+  border:1px solid transparent;
+  cursor:pointer;
+}
+
+.nav a:hover,.theme-toggle:hover{
+  background:var(--mint-soft);
+  color:var(--text);
+}
+
+.card{
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:28px;
+  box-shadow:var(--shadow);
+}
+
+.hero-title{
+  font-size:44px;
+  line-height:1.05;
+  margin:0 0 12px;
+  letter-spacing:-.5px;
+}
+
+.hero-sub{
+  font-size:20px;
+  color:var(--muted);
+  max-width:600px;
+}
+
+.section{
+  margin-top:60px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+h2{
+  font-size:22px;
+  letter-spacing:-.3px;
+}
+
+.view-all{
+  font-size:14px;
+  color:#1f6f4a;
+  text-decoration:none;
+}
+
+.list{
+  display:grid;
+  gap:20px;
+}
+
+.item-title{
+  font-size:22px;
+  font-weight:700;
+  text-decoration:none;
+  color:var(--text);
+}
+
+.item-title:hover{
+  color:#1f6f4a;
+}
+
+.meta{
+  color:var(--muted);
+  font-size:14px;
+  margin:6px 0 10px;
+}
+
+.subtle{
+  color:var(--muted);
+  font-size:15px;
+}
+
+.post-content{
+  font-size:18px;
+  max-width:700px;
+}
+
+.post-content h2{
+  margin-top:40px;
+}
+
+.post-content p{
+  margin:16px 0;
+}
+
+.footer{
+  text-align:center;
+  color:var(--muted);
+  margin-top:80px;
+}
+
+
