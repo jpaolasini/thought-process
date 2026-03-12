@@ -1,5 +1,9 @@
+---
+const basePath = import.meta.env.BASE_URL
+---
+
 <div>
-  <img src="/assets/jasonpaolasini.jpg" alt="Profile photo">
+  <img src={`${basePath}assets/jasonpaolasini.jpg`} alt="Profile photo">
   <p>
     Hi, I'm <strong>Jason</strong>. This is where I share thoughts and insights on cloud native computing,
     Kubernetes, open source, and the ideas and problems worth thinking through.

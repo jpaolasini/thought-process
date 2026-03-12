@@ -10,14 +10,15 @@ export interface Props {
 }
 
 const { title, description, permalink } = Astro.props
-const socialUrl = Astro.site.href + 'assets/social.png'
+const basePath = import.meta.env.BASE_URL
+const socialUrl = new URL(`${basePath}assets/social.png`, Astro.site).href
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" href="public/favicon.ico" sizes="any" />
-<link rel="shortcut icon" href="public/favicon.ico" />
+<link rel="icon" href={`${basePath}favicon.ico`} sizes="any" />
+<link rel="shortcut icon" href={`${basePath}favicon.ico`} />
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
