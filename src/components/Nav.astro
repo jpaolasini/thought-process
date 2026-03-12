@@ -1,0 +1,107 @@
+---
+import ThemeToggleButton from './ThemeToggleButton.svelte';
+const { current = '' } = Astro.props;
+---
+
+<style>
+  nav {
+    align-items: center;
+    display: flex;
+    flex: 1;
+    font-family: var(--font-family-sans);
+    font-weight: 700;
+    justify-content: flex-end;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding: 10px 5px;
+    display: block;
+    position: relative;
+    margin-left: 20px;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .icon-link {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    min-width: auto;
+    margin-left: 20px;
+    padding: 10px 5px;
+  }
+
+  a:not(.selected) {
+    opacity: 0.7;
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    transition: transform .3s ease;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-secondary);
+    transform: scaleX(0);
+  }
+
+  a:hover::before,
+  .selected::before {
+    transform: scaleX(1);
+  }
+
+  .selected::before {
+    background: var(--primary-color);
+  }
+
+  .icon-link::before {
+    display: none;
+  }
+
+  .icon-link:hover {
+    opacity: 1;
+  }
+
+  .icon-link svg {
+    display: block;
+    height: 18px;
+    width: 18px;
+  }
+
+  .theme-toggle-container {
+    width: 75px;
+  }
+
+  @media screen and (max-width: 520px) {
+    .theme-toggle-container {
+      margin-right: 1em;
+    }
+  }
+
+</style>
+
+<nav>
+  <a class={current === "" ? "selected" : ""} href='/'>home</a>
+  <a class={current === "about" ? "selected" : ""} href='/about'>about</a>
+  <a class={current === "blog" ? "selected" : ""} href='/blog'>blog</a>
+  <a
+    class="icon-link"
+    href="https://github.com/jpaolasini/thought-process"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="GitHub repository"
+    title="GitHub repository"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor">
+      <path d="M10.303 16.652c-2.837-.344-4.835-2.385-4.835-5.028 0-1.074.387-2.235 1.031-3.008-.279-.709-.236-2.214.086-2.837.86-.107 2.02.344 2.708.967.816-.258 1.676-.386 2.728-.386 1.053 0 1.913.128 2.686.365.666-.602 1.848-1.053 2.708-.946.3.581.344 2.085.064 2.815.688.817 1.053 1.913 1.053 3.03 0 2.643-1.998 4.641-4.877 5.006.73.473 1.224 1.504 1.224 2.686v2.235c0 .644.537 1.01 1.182.752 3.889-1.483 6.94-5.372 6.94-10.185 0-6.081-4.942-11.044-11.022-11.044-6.081 0-10.98 4.963-10.98 11.044a10.84 10.84 0 0 0 7.112 10.206c.58.215 1.139-.172 1.139-.752v-1.719a2.768 2.768 0 0 1-1.032.215c-1.418 0-2.256-.773-2.857-2.213-.237-.58-.495-.924-.989-.988-.258-.022-.344-.129-.344-.258 0-.258.43-.451.86-.451.623 0 1.16.386 1.719 1.181.43.623.881.903 1.418.903.537 0 .881-.194 1.375-.688.365-.365.645-.687.903-.902Z" />
+    </svg>
+  </a>
+  <div class="theme-toggle-container">
+    <ThemeToggleButton client:load />
+  </div>
+</nav>
