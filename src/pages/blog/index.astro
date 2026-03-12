@@ -4,7 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Blog';
 const description = 'Notes, essays, and experiments from Thought Process.';
-const basePath = import.meta.env.BASE_URL;
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 const permalink = new URL(`${basePath}blog`, Astro.site).href;
 
 let allPosts = await getCollection('posts')
