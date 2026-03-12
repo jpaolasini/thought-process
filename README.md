@@ -85,7 +85,8 @@ npm run preview
 .
 ├── .github/
 │   └── workflows/
-│       └── static.yml
+│       ├── deploy.yml
+│       └── test.yml
 ├── public/
 │   ├── assets/
 │   │   ├── blog/
@@ -193,7 +194,7 @@ flowchart LR
 
 ## Deployment
 
-Deployment is handled by [static.yml](/Users/jason/code/jpaolasini/thought-process/.github/workflows/static.yml).
+Deployment is handled by [deploy.yml](/Users/jason/code/jpaolasini/thought-process/.github/workflows/deploy.yml).
 
 On every push to `main`, GitHub Actions will:
 
@@ -204,6 +205,8 @@ On every push to `main`, GitHub Actions will:
 5. deploy to GitHub Pages
 
 The Astro config in [astro.config.mjs](/Users/jason/code/jpaolasini/thought-process/astro.config.mjs) conditionally applies the GitHub Pages `base` path during Actions builds so local development remains clean while production routes resolve correctly.
+
+Validation is handled separately by [test.yml](/Users/jason/code/jpaolasini/thought-process/.github/workflows/test.yml), which runs on every branch push and pull request and executes `npm run test` to ensure the project checks and compiles successfully.
 
 ## Contributing
 
