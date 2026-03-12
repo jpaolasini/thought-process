@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Thought Process';
 const description = 'Notes on software, systems, and the work behind the work.';
-const permalink = Astro.site.href;
+const basePath = import.meta.env.BASE_URL;
+const permalink = new URL(basePath, Astro.site).href;
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink}>
@@ -15,7 +16,7 @@ const permalink = Astro.site.href;
 
     <div class="hero-image-container">
       <picture>
-        <img class="hero-image" alt="Illustration of person reading a book" src="/assets/home-illustration.png" width="550" height="466">
+        <img class="hero-image" alt="Illustration of person reading a book" src={`${basePath}assets/home-illustration.png`} width="550" height="466">
       </picture>
     </div>
   </div>

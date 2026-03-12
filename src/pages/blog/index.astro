@@ -4,7 +4,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Blog';
 const description = 'Notes, essays, and experiments from Thought Process.';
-const permalink = `${Astro.site.href}blog`;
+const basePath = import.meta.env.BASE_URL;
+const permalink = new URL(`${basePath}blog`, Astro.site).href;
 
 let allPosts = await getCollection('posts')
 allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
@@ -14,7 +15,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.data.publishDate).valueOf() - new 
   <div class="container">
     <h1>Blog</h1>
     {allPosts.map((post, index) => {
-      const href = `/blog/${post.data.slug}`;
+      const href = `${basePath}blog/${post.data.slug}`;
       return (
         <div>
           { index !== 0 && <hr /> }
