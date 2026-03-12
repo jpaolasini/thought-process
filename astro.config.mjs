@@ -7,7 +7,7 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 const isGitHubPagesBuild = Boolean(process.env.GITHUB_ACTIONS)
-const basePath = isGitHubPagesBuild ? process.env.BASE_PATH ?? '/thought-process' : '/'
+const basePath = isGitHubPagesBuild ? process.env.BASE_PATH ?? '/thought-process/' : '/'
 
 function prefixBasePath(tree) {
   const prefix = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath
@@ -38,7 +38,7 @@ function prefixBasePath(tree) {
 
 export default defineConfig({
   site: process.env.SITE_URL ?? 'https://jpaolasini.github.io',
-  base: isGitHubPagesBuild ? process.env.BASE_PATH ?? '/thought-process' : undefined,
+  base: isGitHubPagesBuild ? process.env.BASE_PATH ?? '/thought-process/' : undefined,
   integrations: [mdx(), svelte()],
   markdown: {
     shikiConfig: {
