@@ -3,7 +3,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Thought Process';
 const description = 'Notes on software, systems, and the work behind the work.';
-const basePath = import.meta.env.BASE_URL;
+const basePath = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 const permalink = new URL(basePath, Astro.site).href;
 ---
 
