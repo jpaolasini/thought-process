@@ -39,7 +39,7 @@ function prefixBasePath() {
 }
 
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://jpaolasini.github.io',
+  site: process.env.SITE_URL ?? 'https://blog.jasonpaolasini.com',
   base: isGitHubPagesBuild ? process.env.BASE_PATH ?? '/thought-process/' : undefined,
   integrations: [mdx(), svelte()],
   markdown: {
